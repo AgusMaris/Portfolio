@@ -6,6 +6,7 @@ export const es: Dict = {
       { label: "Sobre Mí", href: "#about" },
       { label: "Stack", href: "#stack" },
       { label: "Experiencia", href: "#experience" },
+      { label: "Referencias", href: "#testimonials" },
       { label: "Contacto", href: "#contact" },
     ],
     cvLabel: "Currículum",

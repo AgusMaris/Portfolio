@@ -1,4 +1,4 @@
-import type { Dict } from "./types"
+import type { Dict } from "./types";
 
 export const en: Dict = {
   nav: {
@@ -6,6 +6,7 @@ export const en: Dict = {
       { label: "About", href: "#about" },
       { label: "Stack", href: "#stack" },
       { label: "Experience", href: "#experience" },
+      { label: "Testimonials", href: "#testimonials" },
       { label: "Contact", href: "#contact" },
     ],
     cvLabel: "Resume",
@@ -38,44 +39,100 @@ export const en: Dict = {
       {
         category: "Frontend",
         items: [
-          { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-          { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", invert: true },
-          { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+          {
+            name: "React",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+          },
+          {
+            name: "Next.js",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+            invert: true,
+          },
+          {
+            name: "TypeScript",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+          },
         ],
       },
       {
         category: "Mobile",
         items: [
-          { name: "React Native", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-          { name: "Expo", icon: "https://cdn.simpleicons.org/expo", invert: true },
+          {
+            name: "React Native",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+          },
+          {
+            name: "Expo",
+            icon: "https://cdn.simpleicons.org/expo",
+            invert: true,
+          },
         ],
       },
       {
         category: "Backend",
         items: [
-          { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-          { name: "NestJS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg" },
-          { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
-          { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+          {
+            name: "Node.js",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+          },
+          {
+            name: "NestJS",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg",
+          },
+          {
+            name: "PostgreSQL",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+          },
+          {
+            name: "MongoDB",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+          },
         ],
       },
       {
         category: "Tooling",
         items: [
-          { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-          { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-          { name: "Jest", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" },
-          { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel", invert: true },
-          { name: "GCP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
-          { name: "Bitbucket", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg" },
+          {
+            name: "Docker",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+          },
+          {
+            name: "Git",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+          },
+          {
+            name: "Jest",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg",
+          },
+          {
+            name: "Vercel",
+            icon: "https://cdn.simpleicons.org/vercel",
+            invert: true,
+          },
+          {
+            name: "GCP",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
+          },
+          {
+            name: "Bitbucket",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg",
+          },
         ],
       },
     ],
     secondaryLabel: "Also worked with",
     secondaryStack: [
-      "Tailwind CSS", "TanStack Query", "Prisma",
-      "Apollo", "GraphQL", "Redux Toolkit", "WatermelonDB", 
-      "BullMQ", "Redis", "Cloudinary", "GitHub Actions"
+      "Tailwind CSS",
+      "TanStack Query",
+      "Prisma",
+      "Apollo",
+      "GraphQL",
+      "Redux Toolkit",
+      "WatermelonDB",
+      "BullMQ",
+      "Redis",
+      "Cloudinary",
+      "GitHub Actions",
     ],
   },
 
@@ -99,7 +156,14 @@ export const en: Dict = {
           "Developed a React Native app with Expo, TypeScript and Unistyles for expense tracking with a strong performance focus",
           "Improved mobile performance by moving real-time UI updates off the JS thread, achieving consistent 60 FPS",
         ],
-        technologies: ["React", "React Native", "Node.js", "TypeScript", "Redis", "Expo"],
+        technologies: [
+          "React",
+          "React Native",
+          "Node.js",
+          "TypeScript",
+          "Redis",
+          "Expo",
+        ],
       },
       {
         company: "Patagonia Chic",
@@ -115,7 +179,13 @@ export const en: Dict = {
           "Reduced initial app size by 80% with bundle optimization and Cloudinary",
           "Implemented CI/CD with Jest and Lighthouse CI to maintain quality and performance",
         ],
-        technologies: ["Next.js", "React", "TypeScript", "Apollo", "Cloudinary"],
+        technologies: [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Apollo",
+          "Cloudinary",
+        ],
       },
       {
         company: "Evaluados",
@@ -130,7 +200,15 @@ export const en: Dict = {
           "Took ownership of the teacher backoffice development, mentoring 2 junior developers",
           "Developed and maintained full-stack features across React, React Native and NestJS",
         ],
-        technologies: ["React", "React Native", "NestJS", "TypeScript", "OpenAI", "Redis", "BullMQ"],
+        technologies: [
+          "React",
+          "React Native",
+          "NestJS",
+          "TypeScript",
+          "OpenAI",
+          "Redis",
+          "BullMQ",
+        ],
       },
       {
         company: "Freelance",
@@ -144,7 +222,14 @@ export const en: Dict = {
           "Developed and maintained the Node.js and TypeScript backend API for mobile support and synchronization with the legacy system",
           "Implemented state management, navigation and local database with Redux Toolkit, React Navigation and WatermelonDB",
         ],
-        technologies: ["React Native", "Expo", "Node.js", "TypeScript", "WatermelonDB", "Redux Toolkit"],
+        technologies: [
+          "React Native",
+          "Expo",
+          "Node.js",
+          "TypeScript",
+          "WatermelonDB",
+          "Redux Toolkit",
+        ],
       },
       {
         company: "UTN",
@@ -195,4 +280,4 @@ export const en: Dict = {
   footer: {
     credit: "Designed and developed by Agustin Mariscotti",
   },
-}
+};
