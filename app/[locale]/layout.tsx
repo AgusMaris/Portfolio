@@ -3,6 +3,7 @@ import { Inter, Fira_Code } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
 import '../globals.css'
+import { UTMCleanup } from './utm-cleanup'
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${inter.variable} ${firaCode.variable} bg-background scroll-smooth`}>
       <body className="font-sans antialiased">
+        <UTMCleanup />
         {children}
         {process.env.NODE_ENV === 'production' && (
           <>
