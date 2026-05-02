@@ -8,7 +8,6 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { NavDict } from "@/lib/dict/types";
 import type { Locale } from "@/lib/dict";
-import posthog from "posthog-js";
 
 interface Props {
   dict: NavDict;
@@ -92,12 +91,6 @@ export function Navbar({ dict, locale }: Props) {
                 <Link
                   href={otherLocalePath}
                   className="text-muted-foreground hover:text-primary transition-colors"
-                  onClick={() =>
-                    posthog.capture("language_switched", {
-                      from: locale,
-                      to: "es",
-                    })
-                  }
                 >
                   ES
                 </Link>
@@ -109,12 +102,6 @@ export function Navbar({ dict, locale }: Props) {
                 <Link
                   href={otherLocalePath}
                   className="text-muted-foreground hover:text-primary transition-colors"
-                  onClick={() =>
-                    posthog.capture("language_switched", {
-                      from: locale,
-                      to: "en",
-                    })
-                  }
                 >
                   EN
                 </Link>
@@ -128,12 +115,6 @@ export function Navbar({ dict, locale }: Props) {
                   download={cvFilename}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() =>
-                    posthog.capture("cv_downloaded", {
-                      locale,
-                      filename: cvFilename,
-                    })
-                  }
                 >
                   {dict.cvLabel}
                 </a>
@@ -200,10 +181,6 @@ export function Navbar({ dict, locale }: Props) {
                 href={otherLocalePath}
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  posthog.capture("language_switched", {
-                    from: locale,
-                    to: "es",
-                  });
                 }}
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
@@ -216,13 +193,6 @@ export function Navbar({ dict, locale }: Props) {
             ) : (
               <Link
                 href={otherLocalePath}
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  posthog.capture("language_switched", {
-                    from: locale,
-                    to: "en",
-                  });
-                }}
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 EN
