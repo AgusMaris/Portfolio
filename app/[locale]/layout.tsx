@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Fira_Code } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import '../globals.css'
 
 const inter = Inter({ 
@@ -47,7 +48,16 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${inter.variable} ${firaCode.variable} bg-background scroll-smooth`}>
       <body className="font-sans antialiased">
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <Analytics />
+            <Script
+              src={process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL}
+              data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+              strategy="afterInteractive"
+            />
+          </>
+        )}
       </body>
     </html>
   )

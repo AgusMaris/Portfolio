@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { NavLink } from "@/components/tracking/nav-link";
+import { CVDownload } from "@/components/tracking/cv-download";
+import { LanguageSwitcher } from "@/components/tracking/language-switcher";
 import type { NavDict } from "@/lib/dict/types";
 import type { Locale } from "@/lib/dict";
 
@@ -68,9 +69,11 @@ export function Navbar({ dict, locale }: Props) {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {dict.items.map((item, index) => (
-              <a
+              <NavLink
                 key={item.href}
                 href={item.href}
+                label={item.label}
+                index={index}
                 className={cn(
                   "text-sm text-muted-foreground hover:text-primary transition-colors",
                   navItemClasses[index],
@@ -80,45 +83,25 @@ export function Navbar({ dict, locale }: Props) {
                   0{index + 1}.
                 </span>
                 {item.label}
-              </a>
+              </NavLink>
             ))}
 
             {/* Language switcher */}
-            <div className="anim-nav-item-5 flex items-center gap-1 text-sm font-mono">
-              {locale === "es" ? (
-                <span className="text-primary font-semibold">ES</span>
-              ) : (
-                <Link
-                  href={otherLocalePath}
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  ES
-                </Link>
-              )}
-              <span className="text-muted-foreground/40 mx-0.5">|</span>
-              {locale === "en" ? (
-                <span className="text-primary font-semibold">EN</span>
-              ) : (
-                <Link
-                  href={otherLocalePath}
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  EN
-                </Link>
-              )}
+            <div className="anim-nav-item-5">
+              <LanguageSwitcher
+                currentLocale={locale}
+                otherLocale={otherLocale}
+                otherLocalePath={otherLocalePath}
+              />
             </div>
 
             <div className="anim-nav-item-6">
-              <Button asChild variant="outline" size="sm">
-                <a
-                  href={cvUrl}
-                  download={cvFilename}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {dict.cvLabel}
-                </a>
-              </Button>
+              <CVDownload
+                cvUrl={cvUrl}
+                cvFilename={cvFilename}
+                label={dict.cvLabel}
+                locale={locale}
+              />
             </div>
           </div>
 
@@ -159,57 +142,35 @@ export function Navbar({ dict, locale }: Props) {
           )}
         >
           {dict.items.map((item, index) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-lg text-foreground hover:text-primary transition-colors"
-            >
-              <span className="text-primary font-mono text-sm mr-2">
-                0{index + 1}.
-              </span>
-              {item.label}
-            </a>
-          ))}
+              <NavLink
+                key={item.href}
+                href={item.href}
+                label={item.label}
+                index={index}
+                className="text-lg text-foreground hover:text-primary transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="text-primary font-mono text-sm mr-2">
+                  0{index + 1}.
+                </span>
+                {item.label}
+              </NavLink>
+            ))}
 
           {/* Mobile language switcher */}
-          <div className="flex items-center gap-2 text-base font-mono pt-2 border-t border-border">
-            {locale === "es" ? (
-              <span className="text-primary font-semibold">ES</span>
-            ) : (
-              <Link
-                href={otherLocalePath}
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                }}
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                ES
-              </Link>
-            )}
-            <span className="text-muted-foreground/40">|</span>
-            {locale === "en" ? (
-              <span className="text-primary font-semibold">EN</span>
-            ) : (
-              <Link
-                href={otherLocalePath}
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                EN
-              </Link>
-            )}
-          </div>
+          <LanguageSwitcher
+            currentLocale={locale}
+            otherLocale={otherLocale}
+            otherLocalePath={otherLocalePath}
+            isMobile
+          />
 
-          <Button asChild className="mt-4">
-            <a
-              href={cvUrl}
-              download={cvFilename}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {dict.cvLabel}
-            </a>
-          </Button>
+          <CVDownload
+            cvUrl={cvUrl}
+            cvFilename={cvFilename}
+            label={dict.cvLabel}
+            locale={locale}
+          />
         </nav>
       </div>
     </>

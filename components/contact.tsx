@@ -2,6 +2,8 @@ import { Github, Linkedin, Mail, Send, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { ContactDict } from "@/lib/dict/types";
 import { features } from "@/lib/features";
+import { SocialLink } from "@/components/tracking/social-link";
+import { ContactButton } from "@/components/tracking/contact-button";
 
 interface Props {
   dict: ContactDict;
@@ -25,52 +27,53 @@ export function Contact({ dict }: Props) {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 anim-scroll-fade-delay-1">
-          <Button asChild size="lg" className="group">
-            <a
-              href="https://calendly.com/agustinm06/agustin-mariscotti-30-min-call"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Calendar className="mr-2 h-4 w-4" />
-              {dict.calendlyLabel}
-            </a>
-          </Button>
-          <Button asChild variant="outline" size="lg" className="group">
-            <a href="mailto:agustinm06@gmail.com">
-              <Mail className="mr-2 h-4 w-4" />
-              {dict.emailLabel}
-            </a>
-          </Button>
+          <ContactButton
+            href="https://calendly.com/agustinm06/agustin-mariscotti-30-min-call"
+            label={dict.calendlyLabel}
+            eventType="calendly"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Calendar className="mr-2 h-4 w-4" />
+            {dict.calendlyLabel}
+          </ContactButton>
+          <ContactButton
+            href="mailto:agustinm06@gmail.com"
+            label={dict.emailLabel}
+            eventType="email"
+          >
+            <Mail className="mr-2 h-4 w-4" />
+            {dict.emailLabel}
+          </ContactButton>
         </div>
 
         <div className="flex justify-center gap-8 anim-scroll-fade-delay-2">
           {features.github && (
-            <a
+            <SocialLink
               href="https://github.com/agustinmariscotti"
-              target="_blank"
-              rel="noopener noreferrer"
+              label="GitHub"
+              platform="github"
               className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="GitHub"
             >
               <Github className="h-6 w-6" />
-            </a>
+            </SocialLink>
           )}
-          <a
+          <SocialLink
             href="https://linkedin.com/in/agustinmariscotti"
-            target="_blank"
-            rel="noopener noreferrer"
+            label="LinkedIn"
+            platform="linkedin"
             className="text-muted-foreground hover:text-primary transition-colors"
-            aria-label="LinkedIn"
           >
             <Linkedin className="h-6 w-6" />
-          </a>
-          <a
+          </SocialLink>
+          <SocialLink
             href="mailto:agustinm06@gmail.com"
+            label="Email"
+            platform="email"
             className="text-muted-foreground hover:text-primary transition-colors"
-            aria-label="Email"
           >
             <Mail className="h-6 w-6" />
-          </a>
+          </SocialLink>
         </div>
       </div>
     </section>
