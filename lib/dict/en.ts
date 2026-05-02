@@ -152,7 +152,7 @@ export const en: Dict = {
         bullets: [
           "Implemented A/B tests in the loan application flow that increased the average amount per customer",
           "Built an interactive dashboard for potential clients that contributed to a 10% increase in retention and conversion",
-          "Implemented a Redis-based queue processor for payment webhooks with automatic retries and exponential backoff",
+          // "Implemented a Redis-based queue processor for payment webhooks with automatic retries and exponential backoff",
           "Developed a React Native app with Expo, TypeScript and Unistyles for expense tracking with a strong performance focus",
           "Improved mobile performance by moving real-time UI updates off the JS thread, achieving consistent 60 FPS",
         ],
