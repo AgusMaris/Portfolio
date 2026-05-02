@@ -4,20 +4,9 @@ import { useState } from "react"
 import { Quote, ChevronDown, ChevronUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-const testimonials = [
-  {
-    name: "Maru Ibanez",
-    role: "Founder @ Evaluados AI | EdTech | Global Shaper Davos",
-    relationship: "Maru fue manager directa de Agustin",
-    excerpt:
-      "Un gran profesional y una gran persona. Agustin se destaco por combinar muy buena capacidad tecnica con una vision de producto y de negocio poco comun en el rol. Desde que entro a Evaluados se convirtio rapidamente en un actor clave del equipo.",
-    fullContent:
-      "Un gran profesional y una gran persona. Agustin se destaco por combinar muy buena capacidad tecnica con una vision de producto y de negocio poco comun en el rol. Desde que entro a Evaluados se convirtio rapidamente en un actor clave del equipo.\n\n- Lidero varias propuestas de automatizacion interna. Una de las mas significativas en el equipo de implementacion fue el proceso de carga de asignaturas: lo que antes tomaba entre 1 y 2 meses con dos personas dedicadas, hoy se resuelve en apenas 2 dias.\n\n- Integro CodePush en nuestra app mobile para acelerar los deploys evitando el ciclo de las tiendas.\n\n- Trabajo en optimizar el onboarding de nuevas universidades y la carga masiva de usuarios (hablamos de miles de usuarios universitarios).\n\n- Acompano al CTO codo a codo en la migracion completa de nuestro software, entre muchas otras cosas.\n\nEs una persona muy proactiva: frente a cada desafio, siempre trae soluciones a la mesa. Tiene una gran sensibilidad para entender el impacto de su trabajo en el resto del equipo y aportar valor donde mas se necesita.\n\nCualquier equipo que lo sume va a ganar no solo un muy buen profesional, sino tambien un partner estrategico para pensar producto y operacion. Lo recomiendo sin dudarlo.",
-    initials: "MI",
-  },
-]
+import type { TestimonialsDict } from "@/lib/dict/types"
 
-export function Testimonials() {
+export function Testimonials({ dict }: { dict: TestimonialsDict }) {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
 
   const toggleExpand = (index: number) => {
@@ -29,14 +18,14 @@ export function Testimonials() {
       <div className="max-w-4xl mx-auto">
         <div className="anim-scroll-fade">
           <h2 className="flex items-center gap-4 text-2xl md:text-3xl font-bold text-foreground mb-12">
-            <span className="text-primary font-mono text-lg">04.</span>
-            Recomendaciones
+            <span className="text-primary font-mono text-lg">{dict.sectionNumber}</span>
+            {dict.title}
             <span className="h-px bg-border flex-1 max-w-xs" />
           </h2>
         </div>
 
         <div className="space-y-6">
-          {testimonials.map((testimonial, index) => {
+          {dict.entries.map((testimonial, index) => {
             const isExpanded = expandedIndex === index
 
             return (
@@ -81,12 +70,12 @@ export function Testimonials() {
                 >
                   {isExpanded ? (
                     <>
-                      Leer menos
+                      {dict.readLess}
                       <ChevronUp className="h-4 w-4" />
                     </>
                   ) : (
                     <>
-                      Leer mas
+                      {dict.readMore}
                       <ChevronDown className="h-4 w-4" />
                     </>
                   )}

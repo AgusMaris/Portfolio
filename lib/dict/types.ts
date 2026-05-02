@@ -73,12 +73,30 @@ export interface NavDict {
   ariaLabelCloseMenu: string
 }
 
+export interface TestimonialEntry {
+  name: string
+  role: string
+  relationship: string
+  excerpt: string
+  fullContent: string
+  initials: string
+}
+
+export interface TestimonialsDict {
+  sectionNumber: string
+  title: string
+  entries: TestimonialEntry[]
+  readMore: string
+  readLess: string
+}
+
 export interface Dict {
   nav: NavDict
   hero: HeroDict
   about: AboutDict
   techStack: TechStackDict
   experience: ExperienceDict
+  testimonials: TestimonialsDict
   contact: ContactDict
   footer: FooterDict
 }

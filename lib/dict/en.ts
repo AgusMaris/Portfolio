@@ -163,8 +163,27 @@ export const en: Dict = {
     ],
   },
 
-  contact: {
+  testimonials: {
     sectionNumber: "04.",
+    title: "Recommendations",
+    entries: [
+      {
+        name: "Maru Ibanez",
+        role: "Founder @ Evaluados AI | EdTech | Global Shaper Davos",
+        relationship: "Maru was Agustin's direct manager",
+        excerpt:
+          "A great professional and a great person. Agustin stood out by combining very good technical skills with a product and business vision that is rare in the role. Since he joined Evaluados, he quickly became a key player in the team.",
+        fullContent:
+          "A great professional and a great person. Agustin stood out by combining very good technical skills with a product and business vision that is rare in the role. Since he joined Evaluados, he quickly became a key player in the team.\n\n- He led several internal automation proposals. One of the most significant in the implementation team was the course loading process: what used to take 1 to 2 months with two dedicated people, today is resolved in just 2 days.\n\n- He integrated CodePush into our mobile app to accelerate deployments bypassing the app store cycle.\n\n- He worked on optimizing the onboarding of new universities and massive user uploads (we are talking about thousands of university users).\n\n- He worked side by side with the CTO in the complete migration of our software, among many other things.\n\nHe is a very proactive person: facing every challenge, he always brings solutions to the table. He has great sensitivity to understand the impact of his work on the rest of the team and add value where it is most needed.\n\nAny team that brings him on will gain not only a very good professional, but also a strategic partner for product and operations thinking. I recommend him without hesitation.",
+        initials: "MI",
+      },
+    ],
+    readMore: "Read more",
+    readLess: "Read less",
+  },
+
+  contact: {
+    sectionNumber: "05.",
     tagline: "Contact",
     title: "Let's Talk",
     description:

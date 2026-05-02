@@ -1,4 +1,4 @@
-import type { Dict } from "./types"
+import type { Dict } from "./types";
 
 export const es: Dict = {
   nav: {
@@ -38,44 +38,100 @@ export const es: Dict = {
       {
         category: "Frontend",
         items: [
-          { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-          { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", invert: true },
-          { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+          {
+            name: "React",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+          },
+          {
+            name: "Next.js",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+            invert: true,
+          },
+          {
+            name: "TypeScript",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+          },
         ],
       },
       {
         category: "Mobile",
         items: [
-          { name: "React Native", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-          { name: "Expo", icon: "https://cdn.simpleicons.org/expo", invert: true },
+          {
+            name: "React Native",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+          },
+          {
+            name: "Expo",
+            icon: "https://cdn.simpleicons.org/expo",
+            invert: true,
+          },
         ],
       },
       {
         category: "Backend",
         items: [
-          { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-          { name: "NestJS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg" },
-          { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
-          { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+          {
+            name: "Node.js",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+          },
+          {
+            name: "NestJS",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg",
+          },
+          {
+            name: "PostgreSQL",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+          },
+          {
+            name: "MongoDB",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+          },
         ],
       },
       {
         category: "Tooling",
         items: [
-          { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-          { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-          { name: "Jest", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" },
-          { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel", invert: true },
-          { name: "GCP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
-          { name: "Bitbucket", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg" },
+          {
+            name: "Docker",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+          },
+          {
+            name: "Git",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+          },
+          {
+            name: "Jest",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg",
+          },
+          {
+            name: "Vercel",
+            icon: "https://cdn.simpleicons.org/vercel",
+            invert: true,
+          },
+          {
+            name: "GCP",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
+          },
+          {
+            name: "Bitbucket",
+            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bitbucket/bitbucket-original.svg",
+          },
         ],
       },
     ],
     secondaryLabel: "También he trabajado con",
     secondaryStack: [
-      "Tailwind CSS", "TanStack Query", "Prisma",
-      "Apollo", "GraphQL", "Redux Toolkit", "WatermelonDB", 
-      "BullMQ", "Redis", "Cloudinary", "GitHub Actions"
+      "Tailwind CSS",
+      "TanStack Query",
+      "Prisma",
+      "Apollo",
+      "GraphQL",
+      "Redux Toolkit",
+      "WatermelonDB",
+      "BullMQ",
+      "Redis",
+      "Cloudinary",
+      "GitHub Actions",
     ],
   },
 
@@ -99,7 +155,14 @@ export const es: Dict = {
           "Desarrollé una app en React Native con Expo, TypeScript y Unistyles para seguimiento de gastos con fuerte foco en performance",
           "Mejoré el performance mobile moviendo actualizaciones de UI en tiempo real fuera del JS thread, logrando 60 FPS constantes",
         ],
-        technologies: ["React", "React Native", "Node.js", "TypeScript", "Redis", "Expo"],
+        technologies: [
+          "React",
+          "React Native",
+          "Node.js",
+          "TypeScript",
+          "Redis",
+          "Expo",
+        ],
       },
       {
         company: "Patagonia Chic",
@@ -115,7 +178,13 @@ export const es: Dict = {
           "Reduje el tamaño inicial de la app en 80% con bundle optimization y Cloudinary",
           "Implementé CI/CD con Jest y Lighthouse CI para mantener calidad y performance",
         ],
-        technologies: ["Next.js", "React", "TypeScript", "Apollo", "Cloudinary"],
+        technologies: [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Apollo",
+          "Cloudinary",
+        ],
       },
       {
         company: "Evaluados",
@@ -130,7 +199,15 @@ export const es: Dict = {
           "Tuve ownership del desarrollo del backoffice para profesores, mentoreando a 2 developers junior",
           "Desarrollé y mantuve features full-stack en React, React Native y NestJS",
         ],
-        technologies: ["React", "React Native", "NestJS", "TypeScript", "OpenAI", "Redis", "BullMQ"],
+        technologies: [
+          "React",
+          "React Native",
+          "NestJS",
+          "TypeScript",
+          "OpenAI",
+          "Redis",
+          "BullMQ",
+        ],
       },
       {
         company: "Freelance",
@@ -144,7 +221,14 @@ export const es: Dict = {
           "Desarrollé y mantuve la API backend en Node.js y TypeScript para soporte mobile y sincronización con el sistema legacy",
           "Implementé state management, navegación y base de datos local con Redux Toolkit, React Navigation y WatermelonDB",
         ],
-        technologies: ["React Native", "Expo", "Node.js", "TypeScript", "WatermelonDB", "Redux Toolkit"],
+        technologies: [
+          "React Native",
+          "Expo",
+          "Node.js",
+          "TypeScript",
+          "WatermelonDB",
+          "Redux Toolkit",
+        ],
       },
       {
         company: "UTN",
@@ -163,12 +247,31 @@ export const es: Dict = {
     ],
   },
 
-  contact: {
+  testimonials: {
     sectionNumber: "04.",
+    title: "Recomendaciones",
+    entries: [
+      {
+        name: "Maru Ibanez",
+        role: "Founder @ Evaluados AI | EdTech | Global Shaper Davos",
+        relationship: "Maru fue manager directa de Agustin",
+        excerpt:
+          "Un gran profesional y una gran persona. Agustin se destaco por combinar muy buena capacidad tecnica con una vision de producto y de negocio poco comun en el rol. Desde que entro a Evaluados se convirtio rapidamente en un actor clave del equipo.",
+        fullContent:
+          "Un gran profesional y una gran persona. Agustin se destaco por combinar muy buena capacidad tecnica con una vision de producto y de negocio poco comun en el rol. Desde que entro a Evaluados se convirtio rapidamente en un actor clave del equipo.\n\n- Lidero varias propuestas de automatizacion interna. Una de las mas significativas en el equipo de implementacion fue el proceso de carga de asignaturas: lo que antes tomaba entre 1 y 2 meses con dos personas dedicadas, hoy se resuelve en apenas 2 dias.\n\n- Integro CodePush en nuestra app mobile para acelerar los deploys evitando el ciclo de las tiendas.\n\n- Trabajo en optimizar el onboarding de nuevas universidades y la carga masiva de usuarios (hablamos de miles de usuarios universitarios).\n\n- Acompano al CTO codo a codo en la migracion completa de nuestro software, entre muchas otras cosas.\n\nEs una persona muy proactiva: frente a cada desafio, siempre trae soluciones a la mesa. Tiene una gran sensibilidad para entender el impacto de su trabajo en el resto del equipo y aportar valor donde mas se necesita.\n\nCualquier equipo que lo sume va a ganar no solo un muy buen profesional, sino tambien un partner estrategico para pensar producto y operacion. Lo recomiendo sin dudarlo.",
+        initials: "MI",
+      },
+    ],
+    readMore: "Leer más",
+    readLess: "Leer menos",
+  },
+
+  contact: {
+    sectionNumber: "05.",
     tagline: "Contacto",
     title: "Hablemos",
     description:
-      "Actualmente estoy abierto a nuevas oportunidades en Buenos Aires o remoto. Si estás construyendo un producto donde se espera que los engineers piensen profundamente, muevan rápido y generen impacto real, probablemente nos llevemos bien.",
+      "Actualmente estoy abierto a nuevas oportunidades en Buenos Aires o remoto. Si estás construyendo un producto donde se espera que los ingenieros piensen profundamente, se muevan rápido y tengan un impacto real, probablemente nos llevemos muy bien.",
     emailLabel: "Enviar Email",
     calendlyLabel: "Agendar llamada",
   },
@@ -176,4 +279,4 @@ export const es: Dict = {
   footer: {
     credit: "Diseñado y desarrollado por Agustin Mariscotti",
   },
-}
+};
