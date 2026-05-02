@@ -1,6 +1,7 @@
 import { Github, Linkedin, Mail, Send, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { ContactDict } from "@/lib/dict/types";
+import { features } from "@/lib/features";
 
 interface Props {
   dict: ContactDict;
@@ -43,15 +44,17 @@ export function Contact({ dict }: Props) {
         </div>
 
         <div className="flex justify-center gap-8 anim-scroll-fade-delay-2">
-          <a
-            href="https://github.com/agustinmariscotti"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors"
-            aria-label="GitHub"
-          >
-            <Github className="h-6 w-6" />
-          </a>
+          {features.github && (
+            <a
+              href="https://github.com/agustinmariscotti"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="GitHub"
+            >
+              <Github className="h-6 w-6" />
+            </a>
+          )}
           <a
             href="https://linkedin.com/in/agustinmariscotti"
             target="_blank"

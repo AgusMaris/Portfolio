@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import type { FooterDict } from "@/lib/dict/types";
+import { features } from "@/lib/features";
 
 interface Props {
   dict: FooterDict;
@@ -12,15 +13,17 @@ export function Footer({ dict }: Props) {
         <p className="text-sm text-muted-foreground font-mono">{dict.credit}</p>
 
         <div className="flex items-center gap-6">
-          <a
-            href="https://github.com/agustinmariscotti"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors"
-            aria-label="GitHub"
-          >
-            <Github className="h-5 w-5" />
-          </a>
+          {features.github && (
+            <a
+              href="https://github.com/agustinmariscotti"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="GitHub"
+            >
+              <Github className="h-5 w-5" />
+            </a>
+          )}
           <a
             href="https://linkedin.com/in/agustinmariscotti"
             target="_blank"
