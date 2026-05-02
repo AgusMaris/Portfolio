@@ -37,6 +37,7 @@ export function Navbar({ dict, locale }: Props) {
 
   const otherLocale: Locale = locale === "es" ? "en" : "es"
   const otherLocalePath = pathname.replace(`/${locale}`, `/${otherLocale}`)
+  const cvFilename = locale === "es" ? "agustin-mariscotti-cv.pdf" : "agustin-mariscotti-resume.pdf"
 
   return (
     <>
@@ -95,7 +96,7 @@ export function Navbar({ dict, locale }: Props) {
 
             <div className="anim-nav-item-6">
               <Button asChild variant="outline" size="sm">
-                <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/cv.pdf" download={cvFilename} target="_blank" rel="noopener noreferrer">
                   {dict.cvLabel}
                 </a>
               </Button>
@@ -174,7 +175,7 @@ export function Navbar({ dict, locale }: Props) {
           </div>
 
           <Button asChild className="mt-4">
-            <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="/cv.pdf" download={cvFilename} target="_blank" rel="noopener noreferrer">
               {dict.cvLabel}
             </a>
           </Button>
