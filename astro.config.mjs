@@ -3,8 +3,10 @@ import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 import { fileURLToPath } from "node:url";
 
+import sitemap from "@astrojs/sitemap";
+
 export default defineConfig({
-  integrations: [react()],
+  integrations: [react(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
     resolve: {
