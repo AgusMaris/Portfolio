@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
+  site: "https://agusmaris.dev",
   integrations: [react(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
