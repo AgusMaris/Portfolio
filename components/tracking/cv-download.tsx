@@ -1,5 +1,3 @@
-"use client"
-
 import { trackEvent } from "@/lib/analytics"
 import { Button } from "@/components/ui/button"
 import type { Locale } from "@/lib/dict"

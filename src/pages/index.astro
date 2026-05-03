@@ -1,0 +1,26 @@
+---
+const fallbackLocale = "es";
+---
+
+<!doctype html>
+<html lang={fallbackLocale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting…</title>
+    <meta http-equiv="refresh" content={`0;url=/${fallbackLocale}/`} />
+  </head>
+  <body>
+    <script is:inline>
+      const supportedLocales = ["es", "en"];
+      const browserLocales = [...(navigator.languages ?? []), navigator.language].filter(Boolean);
+      const preferredLocale =
+        browserLocales
+          .map((locale) => locale.toLowerCase().slice(0, 2))
+          .find((locale) => supportedLocales.includes(locale)) ?? "es";
+
+      window.location.replace(`/${preferredLocale}/${window.location.search}${window.location.hash}`);
+    </script>
+    <p>Redirecting…</p>
+  </body>
+</html>

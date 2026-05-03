@@ -1,6 +1,3 @@
-"use client"
-
-import Link from "next/link"
 import { trackEvent } from "@/lib/analytics"
 
 interface Props {
@@ -18,17 +15,9 @@ export function NavLink({ href, label, index, className, onClick, children }: Pr
     onClick?.()
   }
 
-  if (href.startsWith("#")) {
-    return (
-      <a href={href} onClick={handleClick} className={className}>
-        {children}
-      </a>
-    )
-  }
-
   return (
-    <Link href={href} onClick={handleClick} className={className}>
+    <a href={href} onClick={handleClick} className={className}>
       {children}
-    </Link>
+    </a>
   )
 }

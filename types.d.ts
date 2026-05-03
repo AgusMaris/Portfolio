@@ -2,10 +2,9 @@ interface Umami {
   track: (eventName: string, eventData?: Record<string, unknown>) => void
 }
 
-declare global {
-  interface Window {
-    umami?: Umami
-  }
-}
+declare module "@fontsource-variable/inter";
+declare module "@fontsource/fira-code";
 
-export {}
+interface Window {
+  umami?: Umami
+}

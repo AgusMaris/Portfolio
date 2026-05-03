@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Navbar } from "@/components/navbar";
+import { Hero } from "@/components/hero";
+import { About } from "@/components/about";
+import { TechStack } from "@/components/tech-stack";
+import { Experience } from "@/components/experience";
+import { Testimonials } from "@/components/testimonials";
+import { Contact } from "@/components/contact";
+import { Footer } from "@/components/footer";
+import { getDict, LOCALES, type Locale } from "@/lib/dict";
+
+export function getStaticPaths() {
+  return LOCALES.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const dict = getDict(locale);
+const otherLocale: Locale = locale === "es" ? "en" : "es";
+const otherLocalePath = `/${otherLocale}/`;
+const githubEnabled = import.meta.env.PUBLIC_FEATURE_GITHUB === "true" || import.meta.env.FEATURE_GITHUB === "true";
+---
+
+<BaseLayout
+  locale={locale}
+  title="Agustin Mariscotti | Fullstack Developer"
+  description="Desarrollador Fullstack con orientacion frontend con mas de 5 anos de experiencia. Especializado en React, Astro, TypeScript y Node.js."
+>
+  <main class="min-h-screen">
+    <Navbar client:load dict={dict.nav} locale={locale} otherLocalePath={otherLocalePath} />
+    <Hero dict={dict.hero} githubEnabled={githubEnabled} />
+    <About dict={dict.about} />
+    <TechStack dict={dict.techStack} />
+    <Experience client:load dict={dict.experience} />
+    <Testimonials client:load dict={dict.testimonials} />
+    <Contact client:load dict={dict.contact} githubEnabled={githubEnabled} />
+    <Footer dict={dict.footer} githubEnabled={githubEnabled} />
+  </main>
+</BaseLayout>

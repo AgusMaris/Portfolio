@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { AboutDict } from "@/lib/dict/types";
 
 interface Props {
@@ -44,12 +43,13 @@ export function About({ dict }: Props) {
 
           <div className="relative group anim-scroll-fade-delay-2 md:self-start">
             <div className="relative aspect-square rounded-lg overflow-hidden bg-secondary">
-              <Image
+              <img
                 src="/me.webp"
                 alt="Agustin"
-                fill
-                sizes="(max-width: 768px) 100vw, 300px"
-                className="object-cover"
+                width={600}
+                height={600}
+                loading="lazy"
+                className="h-full w-full object-cover"
               />
             </div>
           </div>

@@ -1,13 +1,13 @@
 import { ArrowDown, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { HeroDict } from "@/lib/dict/types";
-import { features } from "@/lib/features";
 
 interface Props {
   dict: HeroDict;
+  githubEnabled: boolean;
 }
 
-export function Hero({ dict }: Props) {
+export function Hero({ dict, githubEnabled }: Props) {
   return (
     <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 py-20">
       {/* Background gradient effect */}
@@ -56,7 +56,7 @@ export function Hero({ dict }: Props) {
         </div>
 
         <div className="flex gap-6 anim-hero-icons">
-          {features.github && (
+          {githubEnabled && (
             <a
               href="https://github.com/agustinmariscotti"
               target="_blank"

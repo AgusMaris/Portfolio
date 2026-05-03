@@ -1,5 +1,3 @@
-"use client"
-
 import { trackEvent } from "@/lib/analytics"
 
 interface Props {

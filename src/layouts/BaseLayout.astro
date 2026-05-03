@@ -1,0 +1,60 @@
+---
+import Analytics from "@vercel/analytics/astro";
+import "@fontsource-variable/inter";
+import "@fontsource/fira-code";
+import "../styles/globals.css";
+
+interface Props {
+  locale: string;
+  title: string;
+  description: string;
+}
+
+const { locale, title, description } = Astro.props;
+const keywords = ["React", "Astro", "TypeScript", "Node.js", "Frontend", "Fullstack", "Developer"];
+const umamiScriptUrl = import.meta.env.PUBLIC_UMAMI_SCRIPT_URL ?? import.meta.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL;
+const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID ?? import.meta.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+const isProduction = import.meta.env.PROD;
+---
+
+<!doctype html>
+<html lang={locale} class="bg-background scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(", ")} />
+    <meta name="author" content="Agustin Mariscotti" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    {isProduction && umamiScriptUrl && umamiWebsiteId && (
+      <script is:inline async src={umamiScriptUrl} data-website-id={umamiWebsiteId}></script>
+    )}
+  </head>
+  <body class="font-sans antialiased">
+    <slot />
+    <script is:inline>
+      const url = new URL(window.location.href);
+      const hasUTM = Array.from(url.searchParams.keys()).some((key) => key.startsWith("utm_"));
+
+      if (hasUTM) {
+        const cleanParams = new URLSearchParams();
+
+        url.searchParams.forEach((value, key) => {
+          if (!key.startsWith("utm_")) {
+            cleanParams.append(key, value);
+          }
+        });
+
+        const search = cleanParams.toString();
+        const cleanUrl = `${url.pathname}${search ? `?${search}` : ""}${url.hash}`;
+        history.replaceState({}, "", cleanUrl);
+      }
+    </script>
+    {isProduction && <Analytics />}
+  </body>
+</html>

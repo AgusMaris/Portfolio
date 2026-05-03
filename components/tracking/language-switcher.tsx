@@ -1,17 +1,13 @@
-"use client"
-
-import Link from "next/link"
 import { trackEvent } from "@/lib/analytics"
 import type { Locale } from "@/lib/dict"
 
 interface Props {
   currentLocale: Locale
-  otherLocale: Locale
   otherLocalePath: string
   isMobile?: boolean
 }
 
-export function LanguageSwitcher({ currentLocale, otherLocale, otherLocalePath, isMobile }: Props) {
+export function LanguageSwitcher({ currentLocale, otherLocalePath, isMobile }: Props) {
   const baseClasses = isMobile ? "text-base font-mono" : "text-sm font-mono"
   
   return (
@@ -19,25 +15,25 @@ export function LanguageSwitcher({ currentLocale, otherLocale, otherLocalePath, 
       {currentLocale === "es" ? (
         <span className="text-primary font-semibold">ES</span>
       ) : (
-        <Link
+        <a
           href={otherLocalePath}
           className="text-muted-foreground hover:text-primary transition-colors"
           onClick={() => trackEvent("language_switch", { from: "en", to: "es" })}
         >
           ES
-        </Link>
+        </a>
       )}
       <span className="text-muted-foreground/40 mx-0.5">|</span>
       {currentLocale === "en" ? (
         <span className="text-primary font-semibold">EN</span>
       ) : (
-        <Link
+        <a
           href={otherLocalePath}
           className="text-muted-foreground hover:text-primary transition-colors"
           onClick={() => trackEvent("language_switch", { from: "es", to: "en" })}
         >
           EN
-        </Link>
+        </a>
       )}
     </div>
   )

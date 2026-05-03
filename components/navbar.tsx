@@ -1,7 +1,4 @@
-"use client";
-
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { NavLink } from "@/components/tracking/nav-link";
@@ -13,6 +10,7 @@ import type { Locale } from "@/lib/dict";
 interface Props {
   dict: NavDict;
   locale: Locale;
+  otherLocalePath: string;
 }
 
 const navItemClasses = [
@@ -23,10 +21,9 @@ const navItemClasses = [
   "anim-nav-item-5",
 ];
 
-export function Navbar({ dict, locale }: Props) {
+export function Navbar({ dict, locale, otherLocalePath }: Props) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,8 +33,6 @@ export function Navbar({ dict, locale }: Props) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const otherLocale: Locale = locale === "es" ? "en" : "es";
-  const otherLocalePath = pathname.replace(`/${locale}`, `/${otherLocale}`);
   const cvUrl = locale === "es" ? "/cv.pdf" : "/resume.pdf";
   const cvFilename =
     locale === "es"
@@ -90,7 +85,6 @@ export function Navbar({ dict, locale }: Props) {
             <div className="anim-nav-item-5">
               <LanguageSwitcher
                 currentLocale={locale}
-                otherLocale={otherLocale}
                 otherLocalePath={otherLocalePath}
               />
             </div>
@@ -160,7 +154,6 @@ export function Navbar({ dict, locale }: Props) {
           {/* Mobile language switcher */}
           <LanguageSwitcher
             currentLocale={locale}
-            otherLocale={otherLocale}
             otherLocalePath={otherLocalePath}
             isMobile
           />

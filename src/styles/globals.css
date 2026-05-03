@@ -4,6 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --font-inter: 'Inter Variable';
+  --font-fira-code: 'Fira Code';
   /* Dark navy blue theme with React blue (#61DAFB) as primary */
   --background: oklch(0.12 0.03 240);
   --foreground: oklch(0.98 0 0);
@@ -94,7 +96,6 @@
     @apply bg-background text-foreground;
   }
 
-  /* Custom Modern Scrollbar */
   ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
@@ -111,8 +112,6 @@
     background: var(--primary);
   }
 }
-
-/* ─── CSS-native animations (no JS required) ─── */
 
 @keyframes fade-in-up {
   from {
@@ -157,7 +156,6 @@
   50%       { translate: 0 10px; }
 }
 
-/* Hero section — plays once on page load */
 .anim-hero-stagger-1 {
   animation: fade-in-up 0.5s ease both;
 }
@@ -183,7 +181,6 @@
   animation: bounce-y 1.5s ease-in-out infinite;
 }
 
-/* Navbar — slides down from top */
 .anim-nav-slide {
   animation: fade-in-down 0.5s ease both;
 }
@@ -194,7 +191,6 @@
 .anim-nav-item-5 { animation: fade-in-up 0.3s 0.4s ease both; }
 .anim-nav-item-6 { animation: fade-in-up 0.3s 0.5s ease both; }
 
-/* Scroll-triggered sections — use animation-timeline: view() when supported */
 .anim-scroll-fade {
   animation: fade-in-up-scroll linear both;
   animation-timeline: view();
