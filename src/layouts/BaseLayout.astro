@@ -1,5 +1,4 @@
 ---
-import Analytics from "@vercel/analytics/astro";
 import "@fontsource-variable/inter";
 import "@fontsource/fira-code";
 import "../styles/globals.css";
@@ -55,6 +54,5 @@ const isProduction = import.meta.env.PROD;
         history.replaceState({}, "", cleanUrl);
       }
     </script>
-    {isProduction && <Analytics />}
   </body>
 </html>

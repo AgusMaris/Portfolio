@@ -55,7 +55,7 @@ export function Navbar({ dict, locale, otherLocalePath }: Props) {
             className="flex items-center hover:opacity-80 transition-opacity"
           >
             <img
-              src="/android-chrome-192x192.png"
+              src="/favicon-32x32.png"
               alt="AM Logo"
               className="w-8 h-8 rounded-sm"
             />
