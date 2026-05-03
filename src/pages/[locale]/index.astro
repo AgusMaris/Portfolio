@@ -1,12 +1,12 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { Navbar } from "@/components/navbar";
+import Navbar from "@/components/navbar.astro";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { TechStack } from "@/components/tech-stack";
-import { Experience } from "@/components/experience";
-import { Testimonials } from "@/components/testimonials";
-import { Contact } from "@/components/contact";
+import Experience from "@/components/experience.astro";
+import Testimonials from "@/components/testimonials.astro";
+import Contact from "@/components/contact.astro";
 import { Footer } from "@/components/footer";
 import { getDict, LOCALES, type Locale } from "@/lib/dict";
 
@@ -27,13 +27,13 @@ const githubEnabled = import.meta.env.PUBLIC_FEATURE_GITHUB === "true" || import
   description="Desarrollador Fullstack con orientacion frontend con mas de 5 anos de experiencia. Especializado en React, Astro, TypeScript y Node.js."
 >
   <main class="min-h-screen">
-    <Navbar client:load dict={dict.nav} locale={locale} otherLocalePath={otherLocalePath} />
+    <Navbar dict={dict.nav} locale={locale} otherLocalePath={otherLocalePath} />
     <Hero dict={dict.hero} githubEnabled={githubEnabled} />
     <About dict={dict.about} />
     <TechStack dict={dict.techStack} />
-    <Experience client:load dict={dict.experience} />
-    <Testimonials client:load dict={dict.testimonials} />
-    <Contact client:load dict={dict.contact} githubEnabled={githubEnabled} />
+    <Experience dict={dict.experience} />
+    <Testimonials dict={dict.testimonials} />
+    <Contact dict={dict.contact} githubEnabled={githubEnabled} />
     <Footer dict={dict.footer} githubEnabled={githubEnabled} />
   </main>
 </BaseLayout>

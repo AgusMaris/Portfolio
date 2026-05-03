@@ -1,0 +1,77 @@
+---
+import type { TestimonialsDict } from "@/lib/dict/types";
+
+interface Props {
+  dict: TestimonialsDict;
+}
+
+const { dict } = Astro.props;
+---
+
+<section id="testimonials" class="py-24 px-6 md:px-12 lg:px-24 bg-card/50">
+  <div class="max-w-4xl mx-auto">
+    <div class="anim-scroll-fade">
+      <h2 class="flex items-center gap-4 text-2xl md:text-3xl font-bold text-foreground mb-12">
+        <span class="text-primary font-mono text-lg">{dict.sectionNumber}</span>
+        {dict.title}
+        <span class="h-px bg-border flex-1 max-w-xs"></span>
+      </h2>
+    </div>
+
+    <div class="space-y-6">
+      {dict.entries.map((testimonial) => (
+        <article class="relative bg-card rounded-xl p-6 md:p-8 border border-border hover:border-primary/50 transition-all anim-scroll-fade-delay-1">
+          <svg class="absolute top-6 right-6 h-10 w-10 text-primary/20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0 0 2 4 4 0 0 0 4-4V5a2 2 0 0 0-2-2z" />
+            <path d="M6 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0 0 2 4 4 0 0 0 4-4V5a2 2 0 0 0-2-2z" />
+          </svg>
+
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center text-primary font-semibold text-lg shrink-0">
+              {testimonial.initials}
+            </div>
+            <div>
+              <h3 class="font-semibold text-foreground text-lg">{testimonial.name}</h3>
+              <p class="text-sm text-muted-foreground">{testimonial.role}</p>
+              <p class="text-xs text-primary/70 mt-1">{testimonial.relationship}</p>
+            </div>
+          </div>
+
+          <details class="testimonial-details text-muted-foreground leading-relaxed">
+            <summary class="list-none cursor-pointer [&::-webkit-details-marker]:hidden">
+              <p class="testimonial-excerpt italic">&quot;{testimonial.excerpt}&quot;</p>
+              <div class="testimonial-full whitespace-pre-line animate-in fade-in duration-300">&quot;{testimonial.fullContent}&quot;</div>
+              <span class="mt-4 inline-flex items-center justify-center gap-1 rounded-md text-sm font-medium transition-all text-primary hover:text-primary/80 hover:bg-primary/10 h-8 px-3">
+                <span class="read-more">{dict.readMore}</span>
+                <span class="read-less">{dict.readLess}</span>
+                <svg class="read-more h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                <svg class="read-less h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6" /></svg>
+              </span>
+            </summary>
+          </details>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonial-details .testimonial-full,
+  .testimonial-details .read-less {
+    display: none;
+  }
+
+  .testimonial-details[open] .testimonial-excerpt,
+  .testimonial-details[open] .read-more {
+    display: none;
+  }
+
+  .testimonial-details[open] .testimonial-full,
+  .testimonial-details[open] .read-less {
+    display: inline-flex;
+  }
+
+  .testimonial-details[open] .testimonial-full {
+    display: block;
+  }
+</style>
