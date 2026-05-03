@@ -1,0 +1,71 @@
+---
+import { getImage } from "astro:assets";
+import type { AboutDict } from "@/lib/dict/types";
+import meImage from "@/src/assets/me.webp";
+
+interface Props {
+  dict: AboutDict;
+}
+
+const { dict } = Astro.props;
+const aboutImageWidths = [320, 480, 600];
+const aboutImages = await Promise.all(
+  aboutImageWidths.map((width) => getImage({ src: meImage, width, format: "webp" })),
+);
+const aboutImage = {
+  src: aboutImages[aboutImages.length - 1].src,
+  srcSet: aboutImages.map((image, index) => `${image.src} ${aboutImageWidths[index]}w`).join(", "),
+  sizes: "(min-width: 768px) 256px, calc(100vw - 48px)",
+};
+
+const paragraphs = dict.paragraphs.map((paragraph) =>
+  paragraph.split("<highlight>").flatMap((part, index) => {
+    if (index === 0) return [{ text: part, highlighted: false }];
+
+    const [highlighted, rest] = part.split("</highlight>");
+    return [
+      { text: highlighted, highlighted: true },
+      { text: rest, highlighted: false },
+    ];
+  }),
+);
+---
+
+<section id="about" class="py-24 px-6 md:px-12 lg:px-24">
+  <div class="max-w-4xl mx-auto">
+    <div class="anim-scroll-fade">
+      <h2 class="flex items-center gap-4 text-2xl md:text-3xl font-bold text-foreground mb-8">
+        <span class="text-primary font-mono text-lg">
+          {dict.sectionNumber}
+        </span>
+        {dict.title}
+        <span class="h-px bg-border flex-1 max-w-xs"></span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-12">
+      <div class="md:col-span-2 space-y-4 anim-scroll-fade-delay-1">
+        {paragraphs.map((paragraph) => (
+          <p class="text-muted-foreground leading-relaxed">
+            {paragraph.map((part) => part.highlighted ? <span class="text-primary">{part.text}</span> : part.text)}
+          </p>
+        ))}
+      </div>
+
+      <div class="relative group anim-scroll-fade-delay-2 md:self-start">
+        <div class="relative aspect-square rounded-lg overflow-hidden bg-secondary">
+          <img
+            src={aboutImage.src}
+            srcset={aboutImage.srcSet}
+            sizes={aboutImage.sizes}
+            alt="Agustin"
+            width="600"
+            height="600"
+            loading="lazy"
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
