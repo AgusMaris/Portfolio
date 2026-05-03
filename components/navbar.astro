@@ -83,25 +83,25 @@ const navItemClasses = [
       </div>
     </div>
 
-    <a href="#mobile-menu" class="md:hidden text-foreground p-2" aria-label={dict.ariaLabelOpenMenu}>
+    <button id="mobile-menu-open" type="button" class="md:hidden text-foreground p-2" aria-label={dict.ariaLabelOpenMenu} aria-controls="mobile-menu" aria-expanded="false">
       <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M4 12h16" />
         <path d="M4 6h16" />
         <path d="M4 18h16" />
       </svg>
-    </a>
+    </button>
   </nav>
 </header>
 
-<div id="mobile-menu" class="fixed inset-0 z-40 md:hidden opacity-0 pointer-events-none transition-all duration-300 target:opacity-100 target:pointer-events-auto">
-  <a href="#" class="absolute inset-0 bg-background/80 backdrop-blur-md" aria-label={dict.ariaLabelCloseMenu}></a>
-  <nav class="absolute right-0 top-0 bottom-0 w-3/4 max-w-sm bg-card border-l border-border p-8 pt-24 flex flex-col gap-6 translate-x-full target:translate-x-0 transition-transform duration-300 mobile-menu-panel">
-    <a href="#" class="absolute top-5 right-6 p-2 text-foreground" aria-label={dict.ariaLabelCloseMenu}>
+<div id="mobile-menu" data-open="false" class="fixed inset-0 z-40 md:hidden opacity-0 pointer-events-none transition-all duration-300">
+  <button id="mobile-menu-overlay" type="button" class="absolute inset-0 bg-background/80 backdrop-blur-md" aria-label={dict.ariaLabelCloseMenu}></button>
+  <nav class="absolute right-0 top-0 bottom-0 w-3/4 max-w-sm bg-card border-l border-border p-8 pt-24 flex flex-col gap-6 translate-x-full transition-transform duration-300 mobile-menu-panel">
+    <button id="mobile-menu-close" type="button" class="absolute top-5 right-6 p-2 text-foreground" aria-label={dict.ariaLabelCloseMenu}>
       <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M18 6 6 18" />
         <path d="m6 6 12 12" />
       </svg>
-    </a>
+    </button>
 
     {dict.items.map((item, index) => (
       <a
@@ -145,8 +145,41 @@ const navItemClasses = [
 </div>
 
 <style>
-  #mobile-menu:target .mobile-menu-panel {
+  #mobile-menu[data-open="true"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #mobile-menu[data-open="true"] .mobile-menu-panel {
     translate: 0;
     transform: translateX(0);
   }
 </style>
+
+<script>
+  const mobileMenu = document.querySelector<HTMLElement>("#mobile-menu");
+  const openButton = document.querySelector<HTMLButtonElement>("#mobile-menu-open");
+  const closeButton = document.querySelector<HTMLButtonElement>("#mobile-menu-close");
+  const overlayButton = document.querySelector<HTMLButtonElement>("#mobile-menu-overlay");
+  const mobileMenuLinks = mobileMenu?.querySelectorAll<HTMLAnchorElement>("a[href]");
+
+  const setMobileMenuOpen = (open: boolean) => {
+    mobileMenu?.setAttribute("data-open", String(open));
+    openButton?.setAttribute("aria-expanded", String(open));
+    document.body.style.overflow = open ? "hidden" : "";
+  };
+
+  openButton?.addEventListener("click", () => {
+    setMobileMenuOpen(mobileMenu?.getAttribute("data-open") !== "true");
+  });
+  closeButton?.addEventListener("click", () => setMobileMenuOpen(false));
+  overlayButton?.addEventListener("click", () => setMobileMenuOpen(false));
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setMobileMenuOpen(false);
+    }
+  });
+  mobileMenuLinks?.forEach((link) => {
+    link.addEventListener("click", () => setMobileMenuOpen(false));
+  });
+</script>

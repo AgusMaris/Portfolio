@@ -123,6 +123,7 @@ export const en: Dict = {
     secondaryLabel: "Also worked with",
     secondaryStack: [
       "Tailwind CSS",
+      "Astro",
       "TanStack Query",
       "Prisma",
       "Apollo",
